@@ -12,96 +12,70 @@
 
 import os
 import sys
-import math
 import time
+import numpy
 import Image
 import colorsys
 
-def fv_texture():
+from gaborconvolve import gaborconvolve
+
+def fv_texture(imagePath):
+    """
+    Return texture feature vector of image.
+
+    Using Gabor texture.
     """
 
-    """
+    texture_vector = []
 
-    target_dir = 'dataset'
+    cache_name = imagePath+'.texture'
 
-    re_gen_cache = True
+    # if cache exist
+    if os.path.exists(cache_name):
+        f = open(cache_name,'r')
+        for line in f:
+            texture_vector.append(float(line))
+        f.close()
+    
+    # otherwise, generate it.
+    else:
+        f = open(cache_name,'w')
 
-    # histogram initialize
-    hist = []
-    for x in range(0,18):
-        hist.append([])
-        for y in range(0,3):
-            hist[x].append([])
-            for z in range(0,3):
-                hist[x][y].append(0)
+        nscale = 4
+        norient = 6
+        minWaveLength = 3
+        mult = 2
+        sigmaOnf = 0.65
 
+        EO = gaborconvolve(imagePath,nscale,norient,minWaveLength,mult,sigmaOnf) 
 
+        for o in range(0,norient):
+            for s in range(0,nscale):
 
-    # traverse the target_dir, build color vector file for *.jpg in target_dir
-    for root,dirs,files in os.walk(target_dir):
-        for filename in files:
-            # check the file is a jpeg file
-            if filename.split('.')[-1].lower() in ['jpg','jpeg']:
+                result = numpy.abs(EO[o][s])
 
-                # image filename
-                target_image = os.path.join(root,filename)
+                std  = numpy.std(result)
+                mean = numpy.mean(result)
                 
-                # cache filename
-                cache_name = target_image+'.color'
+                # to ensure this vector will be the same as
+                # the vector read from cache file.
+                texture_vector.append(float(str(std)))
+                texture_vector.append(float(str(mean)))
+                
+                # write to cache file.
+                f.write(str(std)+'\n')
+                f.write(str(mean)+'\n')
 
-                # if cache file doesn't exists, generate it.
-                if not os.path.exists(cache_name) or re_gen_cache:
-                    print 'Generate feature vector (color)'
-                    print time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime())
-                    print 'Read',target_image
-                    print 'Write to',cache_name
-                    print ''
+        f.close()
 
-                    # read image
-                    image = Image.open(target_image)
-
-                    # get width and height of image
-                    width,height = image.size
-
-                    # convert to RGB 
-                    image = image.convert('RGB')
-
-                    # build histogram
-                    for x in range(0,width):
-                        for y in range(0,height):
-                            red,green,blue = image.getpixel((x,y))
-                            h,s,v = colorsys.rgb_to_hsv(red/255.0,green/255.0,blue/255.0)
-                            
-                            if h >= 1.0:
-                                h = 0.9999
-                            if s >= 1.0:
-                                s = 0.9999
-                            if v >= 1.0:
-                                v = 0.9999
-
-                            h = int(h * 18)
-                            s = int(s * 3)
-                            v = int(v * 3)
-                            
-
-                            hist[h][s][v] = hist[h][s][v] + 1
-
-                    # write to cache file
-                    cache = open(cache_name,'w')
-
-                    for x in range(0,18):
-                        for y in range(0,3):
-                            for z in range(0,3):
-                                cache.write('%f\n' % (hist[x][y][z]/float(width*height)))
-                                hist[x][y][z] = 0
-                                
-
-                            #print h,s,v
+    return texture_vector
 
 
-                else:
-                    pass
 
 if __name__ == '__main__':
-    fv_texture()
+    if len(sys.argv) != 2:
+        print 'usage:'
+        print 'python fv_texture.py image_path'
+    else:
+        fv_texture(sys.argv[1])
 
