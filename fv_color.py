@@ -45,10 +45,12 @@ def fv_color(imagePath):
         hist = []
         for x in range(0,18):
             hist.append([])
-            for y in range(0,3):
+            for y in range(0,4):
                 hist[x].append([])
                 for z in range(0,3):
                     hist[x][y].append(0)
+        
+        gray = [0,0,0,0]
 
         # read image
         image = Image.open(imagePath)
@@ -57,12 +59,14 @@ def fv_color(imagePath):
         width,height = image.size
 
         # convert to RGB 
+        image_g = image.convert('L')
         image = image.convert('RGB')
 
         # build histogram
         for x in range(0,width):
             for y in range(0,height):
                 red,green,blue = image.getpixel((x,y))
+                g = image_g.getpixel((x,y))
                 h,s,v = colorsys.rgb_to_hsv(red/255.0,green/255.0,blue/255.0)
                             
                 if h >= 1.0:
@@ -73,16 +77,18 @@ def fv_color(imagePath):
                     v = 0.9999
 
                 h = int(h * 18)
-                s = int(s * 3)
+                s = int(s * 4)
                 v = int(v * 3)
                            
                 hist[h][s][v] = hist[h][s][v] + 1
+
+                gray[g/64] = gray[g/64] + 1
 
         # write to cache file
         f = open(cache_name,'w')
 
         for x in range(0,18):
-            for y in range(0,3):
+            for y in range(0,4):
                 for z in range(0,3):
                     
 
@@ -94,9 +100,15 @@ def fv_color(imagePath):
                     f.write(str(result)+'\n')
                     histogram.append(float(str(result)))
                                 
+        # gray
+        for i in range(0,4):
+            result = gray[i]/float(width*height)
+            f.write(str(result)+'\n')
+            histogram.append(float(str(result)))
 
         print 'Write to',cache_name
         print ''
+
 
     #print histogram
     return histogram

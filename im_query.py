@@ -79,9 +79,9 @@ def im_query():
         query_id = query_id + 1
 
         query_cat = query['category']
+        query_img = query['imagePath']
         
         report.write("<h2>Query #%d</h2>\n" % (query_id))
-        report.write("<p><img width='200px' src='%s' /><br/>Category: %s</p>\n" % (query['imagePath'],query_cat))
         
         result_color = {}
         result_texture = {}
@@ -141,8 +141,8 @@ def im_query():
             prc.append((recall,precision)) 
             
         report.write("<table border='1'>\n")
-        report.write("<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
-        report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[0],path[1],path[2],path[3],path[4]))
+        report.write("<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
+        report.write("<tr><th rowspan='3'><img width='200px' src='%s' /></th><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (query_img,path[0],path[1],path[2],path[3],path[4]))
         report.write("<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>\n")
         report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[5],path[6],path[7],path[8],path[9]))
         report.write("</table>\n")
@@ -173,8 +173,8 @@ def im_query():
             prt.append((recall,precision)) 
             
         report.write("<table border='1'>\n")
-        report.write("<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
-        report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[0],path[1],path[2],path[3],path[4]))
+        report.write("<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
+        report.write("<tr><th rowspan='3'><img width='200px' src='%s' /></th><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (query_img,path[0],path[1],path[2],path[3],path[4]))
         report.write("<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>\n")
         report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[5],path[6],path[7],path[8],path[9]))
         report.write("</table>\n")
@@ -205,8 +205,8 @@ def im_query():
             prf.append((recall,precision)) 
             
         report.write("<table border='1'>\n")
-        report.write("<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
-        report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[0],path[1],path[2],path[3],path[4]))
+        report.write("<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n")
+        report.write("<tr><th rowspan='3'><img width='200px' src='%s' /></th><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (query_img,path[0],path[1],path[2],path[3],path[4]))
         report.write("<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>\n")
         report.write("<tr><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td><td><img src='%s' width='100px' /></td></tr>\n" % (path[5],path[6],path[7],path[8],path[9]))
         report.write("</table>\n")

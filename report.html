@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CBIR System - MMAI Homework 2</title>
+<meta charset='utf-8' />
+</head>
+<body>
+<h1>CBIR System</h1>
+<p>MMAI Homework #2</p>
+<p>Qing-Cheng Li<br/>R01922024<br/>qingcheng.li@qcl.tw</p>
+<h2>Query #1</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_01.jpg' /></th><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_19.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_05.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_08.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/waterfall/waterfall_09.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_12.JPG' width='100px' /></td><td><img src='dataset/apple/apple_03.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_03.JPG' width='100px' /></td><td><img src='dataset/flower/flower_16.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_01.jpg' /></th><td><img src='dataset/instrument/instrument_13.jpg' width='100px' /></td><td><img src='dataset/money/money_02.jpg' width='100px' /></td><td><img src='dataset/food/food_04.jpg' width='100px' /></td><td><img src='dataset/food/food_08.jpg' width='100px' /></td><td><img src='dataset/skytree/skytree_03.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/bag/bag_11.jpg' width='100px' /></td><td><img src='dataset/apple/apple_17.jpg' width='100px' /></td><td><img src='dataset/food/food_03.jpg' width='100px' /></td><td><img src='dataset/apple/apple_09.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_13.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_01.jpg' /></th><td><img src='dataset/food/food_05.jpg' width='100px' /></td><td><img src='dataset/apple/apple_17.jpg' width='100px' /></td><td><img src='dataset/beach/beach_09.jpg' width='100px' /></td><td><img src='dataset/apple/apple_03.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_06.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/food/food_04.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_20.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_10.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.111111</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.100000</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h2>Query #2</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_03.jpg' /></th><td><img src='dataset/provintia/provintia_07.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_15.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_16.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_06.JPG' width='100px' /></td><td><img src='dataset/chanel/chanel_13.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/instrument/instrument_19.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_11.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_11.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_12.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_20.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_03.jpg' /></th><td><img src='dataset/flower/flower_07.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_17.jpg' width='100px' /></td><td><img src='dataset/beach/beach_05.jpg' width='100px' /></td><td><img src='dataset/food/food_20.jpg' width='100px' /></td><td><img src='dataset/flower/flower_02.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/flower/flower_01.jpg' width='100px' /></td><td><img src='dataset/painting/painting_18.jpg' width='100px' /></td><td><img src='dataset/sunset/sunset_02.jpg' width='100px' /></td><td><img src='dataset/dog/dog_15.jpg' width='100px' /></td><td><img src='dataset/food/food_16.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_03.jpg' /></th><td><img src='dataset/painting/painting_02.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_11.jpg' width='100px' /></td><td><img src='dataset/food/food_04.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_17.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_11.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/taipei101/taippei101_19.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_19.jpg' width='100px' /></td><td><img src='dataset/beach/beach_03.jpg' width='100px' /></td><td><img src='dataset/rose/rose_20.jpeg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_12.JPG' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.166667</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.142857</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.125000</td></tr>
+<tr><td>0.100000</td><td>0.111111</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.111111</td></tr>
+<tr><td>0.100000</td><td>0.100000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h2>Query #3</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_02.jpg' /></th><td><img src='dataset/waterfall/waterfall_18.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_09.JPG' width='100px' /></td><td><img src='dataset/benz/benz_15.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_17.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/dog/dog_13.jpg' width='100px' /></td><td><img src='dataset/painting/painting_03.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_15.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_02.jpg' width='100px' /></td><td><img src='dataset/pisa/pisa_12.jpeg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_02.jpg' /></th><td><img src='dataset/bag/bag_15.jpg' width='100px' /></td><td><img src='dataset/pisa/pisa_20.jpeg' width='100px' /></td><td><img src='dataset/bag/bag_14.jpg' width='100px' /></td><td><img src='dataset/skytree/skytree_13.JPG' width='100px' /></td><td><img src='dataset/rose/rose_20.jpeg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/rose/rose_01.jpeg' width='100px' /></td><td><img src='dataset/bag/bag_16.jpg' width='100px' /></td><td><img src='dataset/rose/rose_02.jpeg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_10.jpg' width='100px' /></td><td><img src='dataset/beach/beach_08.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/cycling/q_cycling_02.jpg' /></th><td><img src='dataset/cycling/cycling_01.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_02.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_17.JPG' width='100px' /></td><td><img src='dataset/dog/dog_11.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/mountain/mountain_17.jpg' width='100px' /></td><td><img src='dataset/rose/rose_02.jpeg' width='100px' /></td><td><img src='dataset/pisa/pisa_02.jpeg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_5.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_18.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>1.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.500000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.333333</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.250000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.166667</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.142857</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.125000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.111111</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h2>Query #4</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_02.jpg' /></th><td><img src='dataset/painting/painting_15.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_19.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_04.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_01.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/waterfall/waterfall_15.JPG' width='100px' /></td><td><img src='dataset/starbucks/starbucks_04.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_17.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_20.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_19.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_02.jpg' /></th><td><img src='dataset/food/food_18.jpg' width='100px' /></td><td><img src='dataset/apple/apple_09.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_07.JPG' width='100px' /></td><td><img src='dataset/painting/painting_06.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/dog/dog_05.jpg' width='100px' /></td><td><img src='dataset/dog/dog_12.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_13.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_02.jpg' /></th><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_01.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_13.jpg' width='100px' /></td><td><img src='dataset/painting/painting_15.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/beach/beach_09.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_15.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_20.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_07.JPG' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.142857</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.142857</td></tr>
+<tr><td>0.100000</td><td>0.125000</td><td>0.100000</td><td>0.125000</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.100000</td><td>0.111111</td><td>0.100000</td><td>0.111111</td><td>0.200000</td><td>0.222222</td></tr>
+<tr><td>0.100000</td><td>0.100000</td><td>0.100000</td><td>0.100000</td><td>0.300000</td><td>0.300000</td></tr>
+</table>
+<h2>Query #5</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_03.jpg' /></th><td><img src='dataset/waterfall/waterfall_19.JPG' width='100px' /></td><td><img src='dataset/benz/benz_09.JPG' width='100px' /></td><td><img src='dataset/painting/painting_12.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/dog/dog_13.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_13.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_08.JPG' width='100px' /></td><td><img src='dataset/pisa/pisa_16.jpeg' width='100px' /></td><td><img src='dataset/instrument/instrument_20.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_03.jpg' /></th><td><img src='dataset/painting/painting_05.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td><td><img src='dataset/dog/dog_03.jpg' width='100px' /></td><td><img src='dataset/painting/painting_12.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_06.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td><td><img src='dataset/flower/flower_03.jpg' width='100px' /></td><td><img src='dataset/apple/apple_03.jpg' width='100px' /></td><td><img src='dataset/flower/flower_08.jpg' width='100px' /></td><td><img src='dataset/painting/painting_20.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_03.jpg' /></th><td><img src='dataset/painting/painting_12.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td><td><img src='dataset/dog/dog_03.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_17.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_03.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/waterfall/waterfall_09.JPG' width='100px' /></td><td><img src='dataset/painting/painting_05.jpg' width='100px' /></td><td><img src='dataset/pisa/pisa_16.jpeg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_15.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.100000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.250000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>0.400000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.200000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.333333</td></tr>
+<tr><td>0.200000</td><td>0.285714</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.285714</td></tr>
+<tr><td>0.300000</td><td>0.375000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.300000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.222222</td></tr>
+<tr><td>0.300000</td><td>0.300000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.200000</td></tr>
+</table>
+<h2>Query #6</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_01.jpg' /></th><td><img src='dataset/waterfall/waterfall_18.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_04.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_15.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_11.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/waterfall/waterfall_17.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_02.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_09.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_06.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_01.jpg' /></th><td><img src='dataset/painting/painting_03.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_13.jpg' width='100px' /></td><td><img src='dataset/apple/apple_03.jpg' width='100px' /></td><td><img src='dataset/food/food_05.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/cycling/cycling_20.jpg' width='100px' /></td><td><img src='dataset/money/money_08.jpg' width='100px' /></td><td><img src='dataset/flower/flower_08.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_03.JPG' width='100px' /></td><td><img src='dataset/tracffic/tracffic_15.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/waterfall/q_waterfall_01.jpg' /></th><td><img src='dataset/painting/painting_03.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_12.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_15.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/apple/apple_17.jpg' width='100px' /></td><td><img src='dataset/apple/apple_03.jpg' width='100px' /></td><td><img src='dataset/flower/flower_08.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td><td><img src='dataset/apple/apple_09.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.100000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.300000</td><td>0.750000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.250000</td></tr>
+<tr><td>0.400000</td><td>0.800000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.400000</td></tr>
+<tr><td>0.500000</td><td>0.833333</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.333333</td></tr>
+<tr><td>0.500000</td><td>0.714286</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.285714</td></tr>
+<tr><td>0.600000</td><td>0.750000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.700000</td><td>0.777778</td><td>0.100000</td><td>0.111111</td><td>0.300000</td><td>0.333333</td></tr>
+<tr><td>0.700000</td><td>0.700000</td><td>0.100000</td><td>0.100000</td><td>0.300000</td><td>0.300000</td></tr>
+</table>
+<h2>Query #7</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_03.jpg' /></th><td><img src='dataset/instrument/instrument_12.jpg' width='100px' /></td><td><img src='dataset/bag/bag_19.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_20.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_09.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_18.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/tracffic/tracffic_03.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_05.jpg' width='100px' /></td><td><img src='dataset/bag/bag_20.jpg' width='100px' /></td><td><img src='dataset/benz/benz_10.JPG' width='100px' /></td><td><img src='dataset/money/money_11.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_03.jpg' /></th><td><img src='dataset/instrument/instrument_16.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_02.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_05.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_15.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_19.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/apple/apple_05.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_10.jpg' width='100px' /></td><td><img src='dataset/apple/apple_13.jpg' width='100px' /></td><td><img src='dataset/bag/bag_06.jpg' width='100px' /></td><td><img src='dataset/money/money_09.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_03.jpg' /></th><td><img src='dataset/instrument/instrument_12.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_18.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_05.jpg' width='100px' /></td><td><img src='dataset/bag/bag_06.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_05.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/starbucks/starbucks_10.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_14.jpg' width='100px' /></td><td><img src='dataset/bag/bag_04.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_03.jpg' width='100px' /></td><td><img src='dataset/apple/apple_05.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Query #8</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_01.jpg' /></th><td><img src='dataset/sunset/sunset_11.jpg' width='100px' /></td><td><img src='dataset/rose/rose_08.jpeg' width='100px' /></td><td><img src='dataset/rose/rose_11.jpeg' width='100px' /></td><td><img src='dataset/sunset/sunset_07.jpg' width='100px' /></td><td><img src='dataset/rose/rose_09.jpeg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/apple/apple_19.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_13.jpg' width='100px' /></td><td><img src='dataset/skytree/skytree_04.JPG' width='100px' /></td><td><img src='dataset/taipei101/taippei101_15.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_11.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_01.jpg' /></th><td><img src='dataset/dog/dog_13.jpg' width='100px' /></td><td><img src='dataset/painting/painting_14.jpg' width='100px' /></td><td><img src='dataset/painting/painting_17.jpg' width='100px' /></td><td><img src='dataset/apple/apple_14.jpg' width='100px' /></td><td><img src='dataset/rose/rose_06.jpeg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/mountain/mountain_09.jpg' width='100px' /></td><td><img src='dataset/bag/bag_13.jpg' width='100px' /></td><td><img src='dataset/food/food_12.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_09.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_04.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_01.jpg' /></th><td><img src='dataset/rose/rose_11.jpeg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_01.JPG' width='100px' /></td><td><img src='dataset/sunset/sunset_03.jpg' width='100px' /></td><td><img src='dataset/sunset/sunset_07.jpg' width='100px' /></td><td><img src='dataset/skytree/skytree_11.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/rose/rose_08.jpeg' width='100px' /></td><td><img src='dataset/mountain/mountain_05.jpg' width='100px' /></td><td><img src='dataset/painting/painting_14.jpg' width='100px' /></td><td><img src='dataset/rose/rose_13.jpeg' width='100px' /></td><td><img src='dataset/painting/painting_19.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>1.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.500000</td></tr>
+<tr><td>0.200000</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.333333</td></tr>
+<tr><td>0.200000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.250000</td></tr>
+<tr><td>0.300000</td><td>0.600000</td><td>0.100000</td><td>0.200000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.300000</td><td>0.500000</td><td>0.100000</td><td>0.166667</td><td>0.200000</td><td>0.333333</td></tr>
+<tr><td>0.300000</td><td>0.428571</td><td>0.100000</td><td>0.142857</td><td>0.200000</td><td>0.285714</td></tr>
+<tr><td>0.300000</td><td>0.375000</td><td>0.100000</td><td>0.125000</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.300000</td><td>0.333333</td><td>0.100000</td><td>0.111111</td><td>0.300000</td><td>0.333333</td></tr>
+<tr><td>0.300000</td><td>0.300000</td><td>0.100000</td><td>0.100000</td><td>0.300000</td><td>0.300000</td></tr>
+</table>
+<h2>Query #9</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_02.jpg' /></th><td><img src='dataset/bag/bag_08.jpg' width='100px' /></td><td><img src='dataset/dog/dog_14.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_07.jpg' width='100px' /></td><td><img src='dataset/dog/dog_02.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_01.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/tracffic/tracffic_19.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_10.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_13.jpg' width='100px' /></td><td><img src='dataset/apple/apple_11.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_02.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_02.jpg' /></th><td><img src='dataset/cycling/cycling_18.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_19.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_20.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_04.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_08.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/pisa/pisa_12.jpeg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_14.JPG' width='100px' /></td><td><img src='dataset/food/food_02.jpg' width='100px' /></td><td><img src='dataset/money/money_03.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_12.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/rose/q_rose_02.jpg' /></th><td><img src='dataset/cycling/cycling_19.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_10.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_13.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_04.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_05.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/money/money_16.jpg' width='100px' /></td><td><img src='dataset/money/money_18.jpg' width='100px' /></td><td><img src='dataset/painting/painting_15.jpg' width='100px' /></td><td><img src='dataset/beach/beach_01.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_14.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Query #10</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_01.jpg' /></th><td><img src='dataset/provintia/provintia_17.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_01.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_18.JPG' width='100px' /></td><td><img src='dataset/mountain/mountain_06.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_04.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_11.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_12.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_16.JPG' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_01.jpg' /></th><td><img src='dataset/mountain/mountain_15.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_11.jpg' width='100px' /></td><td><img src='dataset/painting/painting_18.jpg' width='100px' /></td><td><img src='dataset/sunset/sunset_02.jpg' width='100px' /></td><td><img src='dataset/beach/beach_05.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/money/money_05.jpg' width='100px' /></td><td><img src='dataset/dog/dog_19.jpg' width='100px' /></td><td><img src='dataset/food/food_03.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_09.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_19.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_01.jpg' /></th><td><img src='dataset/starbucks/starbucks_11.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_12.JPG' width='100px' /></td><td><img src='dataset/bag/bag_08.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_14.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_08.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/mountain/mountain_06.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_19.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_01.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_19.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_17.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.100000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.300000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.300000</td><td>0.750000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.300000</td><td>0.600000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.400000</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.500000</td><td>0.714286</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.600000</td><td>0.750000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.700000</td><td>0.777778</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.800000</td><td>0.800000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Query #11</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_02.jpg' /></th><td><img src='dataset/rose/rose_16.jpeg' width='100px' /></td><td><img src='dataset/apple/apple_08.jpg' width='100px' /></td><td><img src='dataset/bag/bag_05.jpg' width='100px' /></td><td><img src='dataset/flower/flower_17.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_06.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/provintia/provintia_09.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_18.JPG' width='100px' /></td><td><img src='dataset/food/food_19.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_16.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_02.JPG' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_02.jpg' /></th><td><img src='dataset/beach/beach_05.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_15.jpg' width='100px' /></td><td><img src='dataset/food/food_04.jpg' width='100px' /></td><td><img src='dataset/painting/painting_18.jpg' width='100px' /></td><td><img src='dataset/food/food_03.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/instrument/instrument_03.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_11.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_15.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_03.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_20.JPG' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_02.jpg' /></th><td><img src='dataset/bag/bag_05.jpg' width='100px' /></td><td><img src='dataset/flower/flower_17.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_16.jpg' width='100px' /></td><td><img src='dataset/food/food_19.jpg' width='100px' /></td><td><img src='dataset/painting/painting_18.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/painting/painting_16.jpg' width='100px' /></td><td><img src='dataset/painting/painting_08.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_11.jpg' width='100px' /></td><td><img src='dataset/rose/rose_16.jpeg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_14.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>0.285714</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>0.250000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.300000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.400000</td><td>0.400000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Query #12</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_03.jpg' /></th><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/food/food_01.jpg' width='100px' /></td><td><img src='dataset/dog/dog_09.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_04.jpg' width='100px' /></td><td><img src='dataset/painting/painting_15.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/skytree/skytree_08.JPG' width='100px' /></td><td><img src='dataset/cycling/cycling_15.jpg' width='100px' /></td><td><img src='dataset/apple/apple_09.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_09.JPG' width='100px' /></td><td><img src='dataset/instrument/instrument_16.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_03.jpg' /></th><td><img src='dataset/starbucks/starbucks_04.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_20.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_14.jpg' width='100px' /></td><td><img src='dataset/food/food_17.jpg' width='100px' /></td><td><img src='dataset/food/food_02.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/provintia/provintia_17.JPG' width='100px' /></td><td><img src='dataset/money/money_03.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_18.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_07.JPG' width='100px' /></td><td><img src='dataset/dog/dog_12.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/provintia/q_provintia_03.jpg' /></th><td><img src='dataset/provintia/provintia_19.JPG' width='100px' /></td><td><img src='dataset/painting/painting_06.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_16.jpg' width='100px' /></td><td><img src='dataset/food/food_02.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_20.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/cycling/cycling_19.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_18.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_20.jpg' width='100px' /></td><td><img src='dataset/provintia/provintia_18.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_08.JPG' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.100000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>1.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.500000</td></tr>
+<tr><td>0.100000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.333333</td></tr>
+<tr><td>0.100000</td><td>0.250000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.250000</td></tr>
+<tr><td>0.100000</td><td>0.200000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.100000</td><td>0.166667</td><td>0.100000</td><td>0.166667</td></tr>
+<tr><td>0.100000</td><td>0.142857</td><td>0.100000</td><td>0.142857</td><td>0.100000</td><td>0.142857</td></tr>
+<tr><td>0.100000</td><td>0.125000</td><td>0.200000</td><td>0.250000</td><td>0.100000</td><td>0.125000</td></tr>
+<tr><td>0.200000</td><td>0.222222</td><td>0.300000</td><td>0.333333</td><td>0.200000</td><td>0.222222</td></tr>
+<tr><td>0.200000</td><td>0.200000</td><td>0.300000</td><td>0.300000</td><td>0.300000</td><td>0.300000</td></tr>
+</table>
+<h2>Query #13</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_02.jpg' /></th><td><img src='dataset/chanel/chanel_06.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_15.jpg' width='100px' /></td><td><img src='dataset/benz/benz_14.JPG' width='100px' /></td><td><img src='dataset/chanel/chanel_07.jpg' width='100px' /></td><td><img src='dataset/pisa/pisa_10.jpeg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/rose/rose_09.jpeg' width='100px' /></td><td><img src='dataset/chanel/chanel_12.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_7.jpg' width='100px' /></td><td><img src='dataset/money/money_04.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_02.jpg' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_02.jpg' /></th><td><img src='dataset/chanel/chanel_19.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_02.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_10.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_14.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_15.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/money/money_04.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_20.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_16.jpg' width='100px' /></td><td><img src='dataset/pisa/pisa_14.jpeg' width='100px' /></td><td><img src='dataset/chanel/chanel_03.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_02.jpg' /></th><td><img src='dataset/chanel/chanel_15.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_02.jpg' width='100px' /></td><td><img src='dataset/money/money_04.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_15.jpg' width='100px' /></td><td><img src='dataset/apple/apple_13.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/provintia/provintia_20.JPG' width='100px' /></td><td><img src='dataset/money/money_03.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_11.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_05.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_08.jpg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.250000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.200000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.142857</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.125000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.111111</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.100000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Query #14</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_03.jpg' /></th><td><img src='dataset/benz/benz_12.JPG' width='100px' /></td><td><img src='dataset/money/money_03.jpg' width='100px' /></td><td><img src='dataset/benz/benz_11.JPG' width='100px' /></td><td><img src='dataset/taipei101/taippei101_2.jpg' width='100px' /></td><td><img src='dataset/apple/apple_13.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/taipei101/taippei101_18.jpg' width='100px' /></td><td><img src='dataset/benz/benz_08.JPG' width='100px' /></td><td><img src='dataset/instrument/instrument_07.jpg' width='100px' /></td><td><img src='dataset/benz/benz_04.JPG' width='100px' /></td><td><img src='dataset/benz/benz_15.JPG' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_03.jpg' /></th><td><img src='dataset/waterfall/waterfall_20.JPG' width='100px' /></td><td><img src='dataset/food/food_04.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_03.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_16.jpg' width='100px' /></td><td><img src='dataset/food/food_03.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/beach/beach_09.jpg' width='100px' /></td><td><img src='dataset/food/food_19.jpg' width='100px' /></td><td><img src='dataset/instrument/instrument_13.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_16.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_15.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_03.jpg' /></th><td><img src='dataset/benz/benz_15.JPG' width='100px' /></td><td><img src='dataset/starbucks/starbucks_16.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_16.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_11.jpg' width='100px' /></td><td><img src='dataset/painting/painting_02.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/benz/benz_14.JPG' width='100px' /></td><td><img src='dataset/waterfall/waterfall_10.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_02.JPG' width='100px' /></td><td><img src='dataset/taipei101/taippei101_1.jpg' width='100px' /></td><td><img src='dataset/skytree/skytree_03.JPG' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.100000</td><td>1.000000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>1.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.500000</td></tr>
+<tr><td>0.200000</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.333333</td></tr>
+<tr><td>0.200000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.250000</td></tr>
+<tr><td>0.200000</td><td>0.400000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.200000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.333333</td></tr>
+<tr><td>0.300000</td><td>0.428571</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.285714</td></tr>
+<tr><td>0.300000</td><td>0.375000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.400000</td><td>0.444444</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.222222</td></tr>
+<tr><td>0.500000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.200000</td><td>0.200000</td></tr>
+</table>
+<h2>Query #15</h2>
+<h3>Color</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_01.jpg' /></th><td><img src='dataset/waterfall/waterfall_11.JPG' width='100px' /></td><td><img src='dataset/benz/benz_08.JPG' width='100px' /></td><td><img src='dataset/provintia/provintia_15.JPG' width='100px' /></td><td><img src='dataset/flower/flower_12.jpg' width='100px' /></td><td><img src='dataset/waterfall/waterfall_06.JPG' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/cycling/cycling_12.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_08.jpg' width='100px' /></td><td><img src='dataset/taipei101/taippei101_2.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_13.jpg' width='100px' /></td><td><img src='dataset/benz/benz_15.JPG' width='100px' /></td></tr>
+</table>
+<h3>Texture</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_01.jpg' /></th><td><img src='dataset/dog/dog_10.jpg' width='100px' /></td><td><img src='dataset/apple/apple_10.jpg' width='100px' /></td><td><img src='dataset/chanel/chanel_16.jpg' width='100px' /></td><td><img src='dataset/cycling/cycling_07.jpg' width='100px' /></td><td><img src='dataset/tracffic/tracffic_01.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/rose/rose_20.jpeg' width='100px' /></td><td><img src='dataset/apple/apple_18.jpg' width='100px' /></td><td><img src='dataset/bag/bag_15.jpg' width='100px' /></td><td><img src='dataset/flower/flower_13.jpg' width='100px' /></td><td><img src='dataset/dog/dog_02.jpg' width='100px' /></td></tr>
+</table>
+<h3>Fusion</h3>
+<table border='1'>
+<tr><td>Query Image</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th rowspan='3'><img width='200px' src='dataset/00queries00/benz/q_benz_01.jpg' /></th><td><img src='dataset/flower/flower_12.jpg' width='100px' /></td><td><img src='dataset/starbucks/starbucks_16.jpg' width='100px' /></td><td><img src='dataset/mountain/mountain_17.jpg' width='100px' /></td><td><img src='dataset/flower/flower_19.jpg' width='100px' /></td><td><img src='dataset/painting/painting_02.jpg' width='100px' /></td></tr>
+<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td><img src='dataset/skytree/skytree_13.JPG' width='100px' /></td><td><img src='dataset/rose/rose_18.jpeg' width='100px' /></td><td><img src='dataset/rose/rose_01.jpeg' width='100px' /></td><td><img src='dataset/dog/dog_11.jpg' width='100px' /></td><td><img src='dataset/rose/rose_02.jpeg' width='100px' /></td></tr>
+</table>
+<h3>Precision/Recall</h3>
+<table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.250000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.200000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.142857</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.125000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.111111</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.200000</td><td>0.200000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+</table>
+<h2>Category</h2>
+<h3>provintia</h3><table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.066667</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.333333</td></tr>
+<tr><td>0.100000</td><td>0.500000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.166667</td></tr>
+<tr><td>0.133333</td><td>0.444444</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.111111</td></tr>
+<tr><td>0.133333</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.083333</td></tr>
+<tr><td>0.133333</td><td>0.266667</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.066667</td></tr>
+<tr><td>0.200000</td><td>0.333333</td><td>0.033333</td><td>0.055556</td><td>0.033333</td><td>0.055556</td></tr>
+<tr><td>0.266667</td><td>0.380952</td><td>0.033333</td><td>0.047619</td><td>0.033333</td><td>0.047619</td></tr>
+<tr><td>0.300000</td><td>0.375000</td><td>0.066667</td><td>0.083333</td><td>0.033333</td><td>0.041667</td></tr>
+<tr><td>0.400000</td><td>0.444444</td><td>0.100000</td><td>0.111111</td><td>0.066667</td><td>0.074074</td></tr>
+<tr><td>0.466667</td><td>0.466667</td><td>0.100000</td><td>0.100000</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h3>rose</h3><table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.333333</td></tr>
+<tr><td>0.033333</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.166667</td></tr>
+<tr><td>0.066667</td><td>0.222222</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.111111</td></tr>
+<tr><td>0.066667</td><td>0.166667</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.083333</td></tr>
+<tr><td>0.100000</td><td>0.200000</td><td>0.033333</td><td>0.066667</td><td>0.033333</td><td>0.066667</td></tr>
+<tr><td>0.100000</td><td>0.166667</td><td>0.033333</td><td>0.055556</td><td>0.066667</td><td>0.111111</td></tr>
+<tr><td>0.100000</td><td>0.142857</td><td>0.033333</td><td>0.047619</td><td>0.066667</td><td>0.095238</td></tr>
+<tr><td>0.100000</td><td>0.125000</td><td>0.033333</td><td>0.041667</td><td>0.066667</td><td>0.083333</td></tr>
+<tr><td>0.100000</td><td>0.111111</td><td>0.033333</td><td>0.037037</td><td>0.100000</td><td>0.111111</td></tr>
+<tr><td>0.100000</td><td>0.100000</td><td>0.033333</td><td>0.033333</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h3>waterfall</h3><table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.066667</td><td>0.666667</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.066667</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.100000</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td></tr>
+<tr><td>0.133333</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.083333</td></tr>
+<tr><td>0.200000</td><td>0.400000</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.200000</td></tr>
+<tr><td>0.266667</td><td>0.444444</td><td>0.000000</td><td>0.000000</td><td>0.133333</td><td>0.222222</td></tr>
+<tr><td>0.266667</td><td>0.380952</td><td>0.000000</td><td>0.000000</td><td>0.166667</td><td>0.238095</td></tr>
+<tr><td>0.333333</td><td>0.416667</td><td>0.033333</td><td>0.041667</td><td>0.200000</td><td>0.250000</td></tr>
+<tr><td>0.366667</td><td>0.407407</td><td>0.066667</td><td>0.074074</td><td>0.233333</td><td>0.259259</td></tr>
+<tr><td>0.366667</td><td>0.366667</td><td>0.066667</td><td>0.066667</td><td>0.266667</td><td>0.266667</td></tr>
+</table>
+<h3>cycling</h3><table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.333333</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.166667</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.111111</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.083333</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.133333</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.111111</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.095238</td></tr>
+<tr><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.083333</td></tr>
+<tr><td>0.033333</td><td>0.037037</td><td>0.000000</td><td>0.000000</td><td>0.100000</td><td>0.111111</td></tr>
+<tr><td>0.033333</td><td>0.033333</td><td>0.033333</td><td>0.033333</td><td>0.100000</td><td>0.100000</td></tr>
+</table>
+<h3>benz</h3><table border='1'>
+<tr><td colspan='2'>Color</td><td colspan='2'>Texture</td><td colspan='2'>Fusion</td></tr>
+<tr><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td><td>Recall</td><td>Precision</td></tr>
+<tr><td>0.033333</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.333333</td></tr>
+<tr><td>0.066667</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.166667</td></tr>
+<tr><td>0.133333</td><td>0.444444</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.111111</td></tr>
+<tr><td>0.133333</td><td>0.333333</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.083333</td></tr>
+<tr><td>0.133333</td><td>0.266667</td><td>0.000000</td><td>0.000000</td><td>0.033333</td><td>0.066667</td></tr>
+<tr><td>0.133333</td><td>0.222222</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.111111</td></tr>
+<tr><td>0.166667</td><td>0.238095</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.095238</td></tr>
+<tr><td>0.166667</td><td>0.208333</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.083333</td></tr>
+<tr><td>0.200000</td><td>0.222222</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.074074</td></tr>
+<tr><td>0.266667</td><td>0.266667</td><td>0.000000</td><td>0.000000</td><td>0.066667</td><td>0.066667</td></tr>
+</table>
+</body>
+</html>
+</body>
+</html>
