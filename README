@@ -4,3 +4,28 @@ Qing-Cheng Li
 <qingcheng.li at qcl.tw>
 
 CBIR System
+
+Report: 
+R01922024_HW2.pdf
+
+Query Results:
+report.html
+
+Code:
+fv_color.py
+fv_texture.py
+fv_sim.py
+im_query.py
+gaborconvolve.py
+
+features cache file:
+unzip dataset_feature_cache.zip
+
+please put dataset at the same dir with code, then 
+
+$ python im_query.py
+
+it will generate report.html to show the result.
+
+//NOTE
+//You have to install the python package PIL,numpy
