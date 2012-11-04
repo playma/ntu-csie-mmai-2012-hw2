@@ -98,7 +98,7 @@ def fv_color(imagePath):
         print 'Write to',cache_name
         print ''
 
-    print histogram
+    #print histogram
     return histogram
 
 if __name__ == '__main__':
